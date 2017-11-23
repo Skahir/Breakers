@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<title>Wall breaker game</title>
+	<style type="text/css">
+		* {padding: 0; margin: 0;}
+		canvas	{background: #EEE; display: block;	margin: 0 auto;}
+	</style>
+</head>
+<body>
+
+	<canvas id="myCanvas" width="480" height="320"></canvas>
+
+		<script >
+			var canvas = document.getElementById("myCanvas");
+			var ctx = canvas.getContext("2d");
+			var x = canvas.width/2;
+			var y = canvas.height-30;
+		function draw() {
+   		 setInterval(draw, 10);
+			ctx.beginPath();
+			ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+			ctx.fillStyle = "#45cc88 ";
+			ctx.fill();
+			ctx.closePath();
+		}
+		
+
+
+
+
+
+		</script>
+
+
+</body>
+</html>
