@@ -87,3 +87,11 @@ body{
     padding: 3px 3px;
     display: inline-block;
 }
+canvas{
+    background: #EEE; 
+    display: block;  
+    margin: 0 auto;
+}
+.index{
+    margin-top: 20%;
+}

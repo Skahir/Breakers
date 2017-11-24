@@ -37,17 +37,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            
+              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="login.html">Login</a>
 
             <!-- current page highlight -->
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home
+              <a class="nav-link" href="register.html">Register
                 <span class="sr-only">(current)</span>
               </a>
             </li>
 
-              <a class="nav-link" href="login.html">Login</a>
-              <a class="nav-link" href="register.html">Register</a>
-            
            
           </ul>
         </div>
@@ -61,23 +61,18 @@
 
       <div class="row justify-content-center">      
       
-        <div class="col-9">
+        <div class="col-4">
 
-          <div class="frm index">
-            <h1 class="display-4">Welcome to Ball Breakers</h1>
-
-            <p class="lead">
+          <div class="frm">
+            <form method="POST" action="login_form.php">
               
-              Challenge your self with our hand crafted levels and dive in our list of fun/puzzle games.
-              Get the highest score on a level, challenge friends or just play for fun.
-              You can do it all here.
-              <br><br>
-              do you have any suggestions to make the site better some ideas for levels or just a whole new game?
-              <br><br>
-              Contact us via our e-mail (e-mail moet hier). 
-              <br>
+              <label>Gebruikersnaam</label><br>
+              <input type="text" class="form-control" id="username" name="username" placeholder="gebruikersnaam"/><br>
+              <label>Wachtwoord</label><br>
+              <input type="password" class="form-control" id="password" name="password" placeholder="wachtwoord"/><br><br>
+              <input type="submit" class="btn btn-danger" id="login" name="login" value="login"/>
 
-            </p>
+            </form>
 
           <!-- end of frame -->
           </div>

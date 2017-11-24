@@ -1,39 +1,71 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
-<head>
-	
-	<meta charset="utf-8">
-	<title>Wall breaker game</title>
-	<style type="text/css">
-		* {padding: 0; margin: 0;}
-		canvas	{background: #EEE; display: block;	margin: 0 auto;}
-	</style>
+<html lang="en">
+
+  <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Nando Reij">
+
+  <title>Wall breaker game</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="Resources/bootstrap/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="Resources/tether/dist/js/tether.min.js"></script>
+  <link rel="stylesheet" href="Resources/tether/dist/css/tether.min.css">
+
+  <!-- jquery -->
+  <script src="Resources/jquery/jquery.min.js"></script>
+
+  <script src="Resources/bootstrap/js/bootstrap.min.js"></script>
+
+
+
 </head>
 <body>
+<div class="container"><div class="col-4"></div>
 
-	<canvas id="myCanvas" width="480" height="320"></canvas>
+    <div class="frm">
+      <div class="col-4 align-self-center">
 
-		<script >
-			var canvas = document.getElementById("myCanvas");
-			var ctx = canvas.getContext("2d");
-			var x = canvas.width/2;
-			var y = canvas.height-30;
-		function draw() {
-   		 setInterval(draw, 10);
-			ctx.beginPath();
-			ctx.arc(240, 160, 20, 0, Math.PI*2, false);
-			ctx.fillStyle = "#45cc88 ";
-			ctx.fill();
-			ctx.closePath();
-		}
-		
+      	<canvas id="myCanvas" width="480" height="320"></canvas>
+
+      		<script >
+      			var canvas = document.getElementById("myCanvas");
+      			var ctx = canvas.getContext("2d");
+      			var x = canvas.width/2;
+      			var y = canvas.height-30;
+      		function draw() {
+         		 setInterval(draw, 10);
+      			ctx.beginPath();
+      			ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+      			ctx.fillStyle = "#45cc88 ";
+      			ctx.fill();
+      			ctx.closePath();
+      		}
+    		
 
 
 
 
 
-		</script>
+    		</script>
+      <!-- col of canvas -->
+      </div>
+    <!-- end of frm -->
+  </div>
+  <div class="col-4"></div>
+  <!-- end of container -->
+</div>
+<?php 
+
+echo "lol";
+
+?>
 
 
 </body>
