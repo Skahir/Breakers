@@ -57,20 +57,27 @@
     <!-- Page Content -->
     <div class="container">
 
-      <center><h1 class="display-1">Ball Breakers</h1></center>
+      <center><h1 class="display-1 white">Ball Breakers</h1></center>
 
       <div class="row justify-content-center">      
       
         <div class="col-4">
 
           <div class="frm">
-            <form method="POST" action="login_form.php">
-              
-              <label>Gebruikersnaam</label><br>
-              <input type="text" class="form-control" id="username" name="username" placeholder="gebruikersnaam"/><br>
-              <label>Wachtwoord</label><br>
-              <input type="password" class="form-control" id="password" name="password" placeholder="wachtwoord"/><br><br>
-              <input type="submit" class="btn btn-danger" id="login" name="login" value="login"/>
+
+            <form method="POST" action="register_form.php">
+
+              <label>Username </label><br>
+                <input type="text" class="form-control" id="username" name="username" maxlength="50"/><br>
+              <label>E-mail adres </label><br>
+                <input type="email" class="form-control" id="mail" name="mail" maxlength="50"/><br>
+              <label>Confirm E-mailadres </label><br>
+                <input type="email" class="form-control" id="mail2" name="mail2" maxlength="50"/><br>
+              <label>Password </label><br>
+                <input type="password" class="form-control" id="password" name="password" maxlength="50"/><br>
+              <label>Confirm password</label><br>
+                <input type="password" class="form-control" id="password2" name="password2" maxlength="50"/><br><br>
+              <input type="submit" class="btn btn-danger" id="register" name="register" value="register"/>
 
             </form>
 
