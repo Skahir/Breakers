@@ -3,11 +3,13 @@
 	session_start();
 
 	//msg definition so there is no notice
-	$msg = "";
+	$_SESSION["errmsg"] = "";
+
+	$error = false;
 
 	// connect to server and select database
-	mysqli_connect("localhost", "root", "", "mastermind") or die($link);
-	$link = mysqli_connect("localhost", "root", "", "mastermind") or die($link);
+	mysqli_connect("localhost", "root", "", "balls") or die($link);
+	$link = mysqli_connect("localhost", "root", "", "balls") or die($link);
 
 	// get values from form
 	$username = $_POST['username'] ?? '';
@@ -26,13 +28,13 @@
 	//query the database for user
 	if(isset($_POST['login'])){
 		$result = mysqli_query($link, "select * from accounts where Acc_Name = '$username' and Acc_Pass = '$password';")
-							or die("Failed to query database " .mysql_error());
+		or die("Failed to query database " .mysql_error());
 		$login = mysqli_fetch_array($result);
 		if ($login['Acc_Name'] === $username &&  $login['Acc_Pass'] === $password){
-			$msg = "Login gelukt ".$login['Acc_Name'];
+			$_SESSION["errmsg"] = "Login gelukt ".$login['Acc_Name'];
 			header("location: menu.html");
 		} 	else	{
-			$msg = "Failed to login";
+			$_SESSION["errmsg"] = "Failed to login";
 		}
 	}
 ?>

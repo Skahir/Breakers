@@ -12,7 +12,7 @@
 	$error = false;
 
 	// a temporary workaround so there is no notice
-	$errMsg = "";
+	$_SESSION["errmsg"] = "";
 
 	// connect to the server and select database
 	mysqli_connect("localhost", "root", "", "balls") or die($link);
@@ -47,7 +47,7 @@ if (isset($_POST['register'])){
 	// checking the boxes
 	if ( empty($username) || empty($mail) || empty($mail2) || empty($password) || empty($password2) ){
 		$error = true;
-		$errMsg = "All fields are required";
+		$_SESSION["errmsg"] = "All fields are required";
 	}
 /*
 	//check if username is already in use
@@ -59,25 +59,25 @@ if (isset($_POST['register'])){
 	//check if name is atleast 3 characters long
 	elseif (strlen($username) < 3){
 		$error = true;
-		$errMsg = "username must have atleast 3 characters.";
+		$_SESSION["errmsg"] = "username must have atleast 3 characters.";
 	}
 
 	// checking if the passwords add up
 	elseif ($password != $password2){
 		$error = true;
-		$errMsg = "password needs to be the same.";
+		$_SESSION["errmsg"] = "password needs to be the same.";
 	}
 
 	// checking if password is atleast 6 characters long
 	elseif (strlen($password) < 6){
 		$error = true;
-		$errMsg = "password must have atleast 6 characters.";
+		$_SESSION["errmsg"] = "password must have atleast 6 characters.";
 	}
 	
 	// checking if the mails add up
 	elseif ($mail != $mail2){
 		$error = true;
-		$errMsg = "E-mail needs to be the same.";
+		$_SESSION["errmsg"] = "E-mail needs to be the same.";
 	} else {
 
 		// checking if the email is already in use
@@ -85,7 +85,7 @@ if (isset($_POST['register'])){
 		$result = mysqli_query($link, $query);
 		$count = mysqli_num_rows($result);
 		if ($count != 0){
-			$errMsg = "Provided Email is already in use.";
+			$_SESSION["errmsg"] = "Provided Email is already in use.";
 		} 
 	}
 
@@ -94,9 +94,9 @@ if (isset($_POST['register'])){
 	$result = mysqli_query($link, "INSERT INTO accounts (Acc_ID, Acc_Name, Acc_Pass, Acc_mail) VALUES (NULL, '$username', '$password', '$mail')") or die("Failed to query database" .mysqli_error($link));
 
 		if($result){
-			$errMsg = "You have successfully registered, you may login now";
+			$_SESSION["errmsg"] = "You have successfully registered, you may login now";
 		} else {
-			$errMsg = "Something went wrong, try again later...";
+			$_SESSION["errmsg"] = "Something went wrong, try again later...";
 		}
 	}	
 }
