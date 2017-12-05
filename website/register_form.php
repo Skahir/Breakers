@@ -91,12 +91,14 @@ if (isset($_POST['register'])){
 
 	// if there's no error, add the row with the info
 	if (!$error){
-	$result = mysqli_query($link, "INSERT INTO accounts (Acc_ID, Acc_Name, Acc_Pass, Acc_mail) VALUES (NULL, '$username', '$password', '$mail')") or die("Failed to query database" .mysqli_error($link));
+	$result = mysqli_query($link, "INSERT INTO accounts (acc_ID, acc_Name, acc_Pass, acc_Mail) VALUES (NULL, '$username', '$password', '$mail')") or die("Failed to query database" .mysqli_error($link));
 
 		if($result){
 			$errMsg = "You have successfully registered, you may login now";
+			header("location: login.html");
 		} else {
 			$errMsg = "Something went wrong, try again later...";
+			header("location: register.html");
 		}
 	}	
 }
