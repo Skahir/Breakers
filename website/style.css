@@ -18,7 +18,7 @@ body{
     background: white;
     float: center;
     padding: 8%;
-    margin-top: 40%;
+    margin-top: 10%;
 }
 .dio{
     font-size: 20px;
@@ -26,9 +26,6 @@ body{
 }
 .register{
     float: right;
-}
-.menu{
-    margin-top: 20%;
 }
 .button {
     background-color: white; /* Green */
@@ -91,9 +88,6 @@ canvas{
     background: #EEE; 
     display: block;  
     margin: 0 auto;
-}
-.index{
-    margin-top: 20%;
 }
 .white{
     color: white;
