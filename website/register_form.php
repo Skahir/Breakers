@@ -94,14 +94,17 @@ if (isset($_POST['register'])){
 	$result = mysqli_query($link, "INSERT INTO accounts (acc_ID, acc_Name, acc_Pass, acc_Mail) VALUES (NULL, '$username', '$password', '$mail')") or die("Failed to query database" .mysqli_error($link));
 
 		if($result){
+<<<<<<< HEAD
 			$_SESSION["errmsg"] = "You have successfully registered, you may login now";
 		} else {
 			$_SESSION["errmsg"] = "Something went wrong, try again later...";
+=======
 			$errMsg = "You have successfully registered, you may login now";
 			header("location: login.html");
 		} else {
 			$errMsg = "Something went wrong, try again later...";
 			header("location: register.html");
+>>>>>>> f03b98c479bb39694940da6ea7eb479e56e52a30
 		}
 	}	
 }

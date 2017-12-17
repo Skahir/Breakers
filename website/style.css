@@ -1,15 +1,13 @@
 html{
-    
+
 }
 body{
-    background: url(pictures/background.jpg) fixed;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     padding-top: 54px;
-
 }
 .frm{
     font: 87.5%/1.5em 'Open Sans', sans-serif;
@@ -85,7 +83,6 @@ body{
     display: inline-block;
 }
 canvas{
-    background: #EEE; 
     display: block;  
     margin: 0 auto;
 }

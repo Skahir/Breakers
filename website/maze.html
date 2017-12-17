@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,64 +10,50 @@
 
   <title>Maze game</title>
 
-  <!-- Bootstrap core CSS -->
+   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="Resources/bootstrap/css/bootstrap.min.css">
+  
   <!-- Custom styles for this template -->
   <link rel="stylesheet" type="text/css" href="style.css">
 
-  <script src="Resources/tether/dist/js/tether.min.js"></script>
-  <link rel="stylesheet" href="Resources/tether/dist/css/tether.min.css">
-
   <!-- jquery -->
   <script src="Resources/jquery/jquery.min.js"></script>
-
   <script src="Resources/bootstrap/js/bootstrap.min.js"></script>
 
-
+  <script src="background.js"></script>
 
 
 </head>
 <body>
-<div class="container"><div class="col-4"></div>
 
-    <div class="frm">
-      <div class="col-4 align-self-center">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" img=""></a>
 
-      	<canvas id="canvas" width="480" height="320"></canvas>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      		<script>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
 
-            function draw() {
-              var canvas = document.getElementById('canvas');
-              if (canvas.getContext) {
-                 var ctx = canvas.getContext('2d');
+          <li class="nav-item active">
+            <a class="nav-link" href="menu.html">Menu
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+            <a class="nav-link" href="index.html">logout</a>
 
-                ctx.beginPath();
-                ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
-                ctx.moveTo(110, 75);
-                ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
-                ctx.moveTo(65, 65);
-                ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
-                ctx.moveTo(95, 65);
-                ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
-                ctx.stroke();
-              }
-            }
-
-     		  </script>
-      <!-- col of canvas -->
+        </ul>
       </div>
-    <!-- end of frm -->
-  </div>
-  <div class="col-4"></div>
-  <!-- end of container -->
-</div>
-<?php 
+    </div>
+  </nav>
 
-echo "lol";
-
-?>
-
+  <!-- page content -->
+  <canvas></canvas>
+  <canvas id="maze"></canvas>
+  <script src="test.js"></script>
 
 </body>
 </html>
