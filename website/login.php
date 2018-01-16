@@ -27,7 +27,11 @@
   <!-- background -->
   <canvas width="3" height="3"></canvas>
   <script src="background.js"></script>
-  
+
+  <?php 
+  session_start();
+  ?>
+
   </head>
 
   <body>
@@ -42,16 +46,17 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             
-              <a class="nav-link" href="index.html">Home</a>
-              <a class="nav-link" href="login.html">Login</a>
+              <a class="nav-link" href="index.php">Home</a>
 
             <!-- current page highlight -->
             <li class="nav-item active">
-              <a class="nav-link" href="register.html">Register
+              <a class="nav-link" href="login.php">Login
                 <span class="sr-only">(current)</span>
               </a>
             </li>
 
+              <a class="nav-link" href="register.php">Register</a>
+            
            
           </ul>
         </div>
@@ -68,23 +73,19 @@
         <div class="col-4">
 
           <div class="frm">
+            <form method="POST" action="login_form.php">
+              
+              <div class="alert alert-danger"><?php if($_SESSION["error"] === true) { echo $_SESSION["errMsg"]; } ?></div>
 
-            <form method="POST" action="register_form.php">
-
-              <label>Username </label><br>
-                <input type="text" class="form-control" id="username" name="username" maxlength="50"/><br>
-              <label>E-mail adres </label><br>
-                <input type="email" class="form-control" id="mail" name="mail" maxlength="50"/><br>
-              <label>Confirm E-mailadres </label><br>
-                <input type="email" class="form-control" id="mail2" name="mail2" maxlength="50"/><br>
-              <label>Password </label><br>
-                <input type="password" class="form-control" id="password" name="password" maxlength="50"/><br>
-              <label>Confirm password</label><br>
-                <input type="password" class="form-control" id="password2" name="password2" maxlength="50"/><br><br>
-              <input type="submit" class="btn btn-danger" id="register" name="register" value="register"/>
+              <label>Gebruikersnaam</label><br>
+              <input type="text" class="form-control" id="username" name="username" placeholder="gebruikersnaam"/><br>
+              <label>Wachtwoord</label><br>
+              <input type="password" class="form-control" id="password" name="password" placeholder="wachtwoord"/><br><br>
+              <input type="submit" class="btn btn-danger" id="login" name="login" value="login"/>
 
             </form>
-
+            
+            
           <!-- end of frame -->
           </div>
       <!-- end of center col-4 -->

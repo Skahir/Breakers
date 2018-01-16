@@ -2,18 +2,17 @@
 	// requirements
 	session_start();
 
-	//msg definition so there is no notice
-	$_SESSION["errmsg"] = "";
+	$_SESSION["error"] = false;
+	$_SESSION["errMsg"] = "test bericht";
 
-	$error = false;
 
 	// connect to server and select database
-	mysqli_connect("localhost", "root", "", "balls") or die($link);
 	$link = mysqli_connect("localhost", "root", "", "balls") or die($link);
+	mysqli_connect("localhost", "root", "", "balls") or die($link);
 
 	// get values from form
-	$username = $_POST['username'] ?? '';
-	$password = $_POST['password'] ?? '';
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 	
 	// to prevent mysql injection
 	$username = stripcslashes($username);
@@ -22,19 +21,19 @@
 	$username = mysqli_real_escape_string($link, $username);
 	$password = mysqli_real_escape_string($link, $password);
 	
-	// connect to the server and select database
-	mysqli_connect("localhost", "root", "", "mastermind");
-	
 	//query the database for user
 	if(isset($_POST['login'])){
-		$result = mysqli_query($link, "select * from accounts where Acc_Name = '$username' and Acc_Pass = '$password';")
-		or die("Failed to query database " .mysql_error());
-		$login = mysqli_fetch_array($result);
-		if ($login['Acc_Name'] === $username &&  $login['Acc_Pass'] === $password){
-			$_SESSION["errmsg"] = "Login gelukt ".$login['Acc_Name'];
+		$result = mysqli_query($link, "SELECT * FROM accounts WHERE acc_Name = '$username' AND acc_Pass = '$password';") or die("Failed to query database " .mysql_error());
+		$fetch = mysqli_fetch_array($result);
+		if ($fetch['acc_Name'] == $username &&  $fetch['acc_Pass'] == $password){
+			$_SESSION["error"] = false;
+			$_SESSION["errMsg"] = "Login gelukt ".$fetch['acc_Name'];
 			header("location: menu.html");
-		} 	else	{
-			$_SESSION["errmsg"] = "Failed to login";
+		} 	 
+		elseif($fetch['acc_Name'] != $username &&  $fetch['acc_Pass'] != $password){
+			$_SESSION["error"] = true;
+			$_SESSION["errMsg"] = "Failed to login";
+			header("location: login.php");
 		}
 	}
 ?>

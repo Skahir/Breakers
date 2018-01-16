@@ -27,30 +27,30 @@
   <!-- background -->
   <canvas width="3" height="3"></canvas>
   <script src="background.js"></script>
+
   </head>
 
   <body>
-
+    
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" img=""></a>
+        <a class="navbar-brand" href="#">Welkom</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            
-              <a class="nav-link" href="index.html">Home</a>
 
             <!-- current page highlight -->
             <li class="nav-item active">
-              <a class="nav-link" href="login.html">Login
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
 
-              <a class="nav-link" href="register.html">Register</a>
+              <a class="nav-link" href="login.php">Login</a>
+              <a class="nav-link" href="register.php">Register</a>
             
            
           </ul>
@@ -65,20 +65,24 @@
 
       <div class="row justify-content-center">      
       
-        <div class="col-4">
+        <div class="col-9">
 
-          <div class="frm">
-            <form method="POST" action="login_form.php">
+          <div class="frm index">
+            <h1 class="display-4">Welcome to Ball Breakers</h1>
+
+            <p class="lead">
               
-              <label>Gebruikersnaam</label><br>
-              <input type="text" class="form-control" id="username" name="username" placeholder="gebruikersnaam"/><br>
-              <label>Wachtwoord</label><br>
-              <input type="password" class="form-control" id="password" name="password" placeholder="wachtwoord"/><br><br>
-              <input type="submit" class="btn btn-danger" id="login" name="login" value="login"/>
+              Challenge your self with our hand crafted levels and dive in our list of fun/puzzle games.
+              Get the highest score on a level, challenge friends or just play for fun.
+              You can do it all here.
+              <br><br>
+              Do you have any suggestions to make the site better some ideas for levels or just a whole new game?
+              <br><br>
+              Contact us via our e-mail (e-mail moet hier). 
+              <br>
 
-            </form>
-            
-            
+            </p>
+
           <!-- end of frame -->
           </div>
       <!-- end of center col-4 -->
