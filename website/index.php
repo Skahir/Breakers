@@ -31,23 +31,26 @@
   </head>
 
   <body>
-
+    
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" img=""></a>
+        <a class="navbar-brand" href="#">Welkom</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+
+            <!-- current page highlight -->
             <li class="nav-item active">
-              <a class="nav-link" href="menu.html">Menu
+              <a class="nav-link" href="index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            
-              <a class="nav-link" href="index.php">logout</a>
+
+              <a class="nav-link" href="login.php">Login</a>
+              <a class="nav-link" href="register.php">Register</a>
             
            
           </ul>
@@ -58,18 +61,27 @@
     <!-- Page Content -->
     <div class="container">
 
-      <center><h1 class="display-1">Ball Breakers</h1></center>
+      <center><h1 class="display-1 white">Ball Breakers</h1></center>
 
       <div class="row justify-content-center">      
       
-        <div class="col-4">
+        <div class="col-9">
 
-          <div class="frm">
-            <!-- button to dodge game -->
-            <a class="btn btn-info" href="dodge.html">dodge game</a>
-            <!-- button to pong game -->
-            <a class="btn btn-success" href="breaker.html">pong game</a>
+          <div class="frm index">
+            <h1 class="display-4">Welcome to Ball Breakers</h1>
 
+            <p class="lead">
+              
+              Challenge your self with our hand crafted levels and dive in our list of fun/puzzle games.
+              Get the highest score on a level, challenge friends or just play for fun.
+              You can do it all here.
+              <br><br>
+              Do you have any suggestions to make the site better some ideas for levels or just a whole new game?
+              <br><br>
+              Contact us via our e-mail (e-mail moet hier). 
+              <br>
+
+            </p>
 
           <!-- end of frame -->
           </div>

@@ -27,6 +27,12 @@
   <!-- background -->
   <canvas width="3" height="3"></canvas>
   <script src="background.js"></script>
+  
+  <?php 
+    session_start(); 
+    $_SESSION["error"] = false;
+
+  ?>
 
   </head>
 
@@ -41,14 +47,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            
+              <a class="nav-link" href="index.php">Home</a>
+              <a class="nav-link" href="login.php">Login</a>
+
+            <!-- current page highlight -->
             <li class="nav-item active">
-              <a class="nav-link" href="menu.html">Menu
+              <a class="nav-link" href="register.php">Register
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            
-              <a class="nav-link" href="index.php">logout</a>
-            
+
            
           </ul>
         </div>
@@ -58,18 +67,31 @@
     <!-- Page Content -->
     <div class="container">
 
-      <center><h1 class="display-1">Ball Breakers</h1></center>
+      <center><h1 class="display-1 white">Ball Breakers</h1></center>
 
       <div class="row justify-content-center">      
       
         <div class="col-4">
 
           <div class="frm">
-            <!-- button to dodge game -->
-            <a class="btn btn-info" href="dodge.html">dodge game</a>
-            <!-- button to pong game -->
-            <a class="btn btn-success" href="breaker.html">pong game</a>
 
+            <form method="POST" action="register_form.php">
+
+              <div class="alert alert-danger"><?php if($_SESSION["error"] === true) { echo $_SESSION["errMsg"]; } ?></div>
+
+              <label>Username </label><br>
+                <input type="text" class="form-control" id="username" name="username" maxlength="50"/><br>
+              <label>E-mail adres </label><br>
+                <input type="email" class="form-control" id="mail" name="mail" maxlength="50"/><br>
+              <label>Confirm E-mailadres </label><br>
+                <input type="email" class="form-control" id="mail2" name="mail2" maxlength="50"/><br>
+              <label>Password </label><br>
+                <input type="password" class="form-control" id="password" name="password" maxlength="50"/><br>
+              <label>Confirm password</label><br>
+                <input type="password" class="form-control" id="password2" name="password2" maxlength="50"/><br><br>
+              <input type="submit" class="btn btn-danger" id="register" name="register" value="register"/>
+
+            </form>
 
           <!-- end of frame -->
           </div>

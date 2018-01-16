@@ -28,6 +28,10 @@
   <canvas width="3" height="3"></canvas>
   <script src="background.js"></script>
 
+  <?php 
+  session_start();
+  ?>
+
   </head>
 
   <body>
@@ -41,13 +45,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            
+              <a class="nav-link" href="index.php">Home</a>
+
+            <!-- current page highlight -->
             <li class="nav-item active">
-              <a class="nav-link" href="menu.html">Menu
+              <a class="nav-link" href="login.php">Login
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            
-              <a class="nav-link" href="index.php">logout</a>
+
+              <a class="nav-link" href="register.php">Register</a>
             
            
           </ul>
@@ -58,19 +66,26 @@
     <!-- Page Content -->
     <div class="container">
 
-      <center><h1 class="display-1">Ball Breakers</h1></center>
+      <center><h1 class="display-1 white">Ball Breakers</h1></center>
 
       <div class="row justify-content-center">      
       
         <div class="col-4">
 
           <div class="frm">
-            <!-- button to dodge game -->
-            <a class="btn btn-info" href="dodge.html">dodge game</a>
-            <!-- button to pong game -->
-            <a class="btn btn-success" href="breaker.html">pong game</a>
+            <form method="POST" action="login_form.php">
+              
+              <div class="alert alert-danger"><?php if($_SESSION["error"] === true) { echo $_SESSION["errMsg"]; } ?></div>
 
+              <label>Gebruikersnaam</label><br>
+              <input type="text" class="form-control" id="username" name="username" placeholder="gebruikersnaam"/><br>
+              <label>Wachtwoord</label><br>
+              <input type="password" class="form-control" id="password" name="password" placeholder="wachtwoord"/><br><br>
+              <input type="submit" class="btn btn-danger" id="login" name="login" value="login"/>
 
+            </form>
+            
+            
           <!-- end of frame -->
           </div>
       <!-- end of center col-4 -->

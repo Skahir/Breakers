@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Nando Reij">
 
-  <title>Maze game</title>
+  <title>Dodge game</title>
 
    <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="Resources/bootstrap/css/bootstrap.min.css">
@@ -20,7 +20,6 @@
   <script src="Resources/jquery/jquery.min.js"></script>
   <script src="Resources/bootstrap/js/bootstrap.min.js"></script>
 
-  <script src="background.js"></script>
 
 
 </head>
@@ -43,7 +42,7 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-            <a class="nav-link" href="index.html">logout</a>
+            <a class="nav-link" href="index.php">logout</a>
 
         </ul>
       </div>
@@ -51,9 +50,13 @@
   </nav>
 
   <!-- page content -->
-  <canvas></canvas>
-  <canvas id="maze"></canvas>
-  <script src="test.js"></script>
+  <canvas width="3" height="3"></canvas>
+  <script src="background.js"></script>
+  
+  <div id="game" class="">
+    <canvas id="dodge" style="border: solid black 5px;"></canvas>
+    <script src="dodge.js"></script>
+  </div>
 
 </body>
 </html>
