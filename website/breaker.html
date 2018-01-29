@@ -49,7 +49,7 @@
 	
 	<h1><center><button id="startBtn">Start</button></center></h1>
 
-	<canvas id="myCanvas" width="1300" height="500" style="background-color: transparent; border-style: solid; border-width: 5px;">
+	<canvas id="myCanvas" width="1300" height="605" style="background-color: transparent; border-style: solid; border-width: 5px;">
 		
 	</canvas>
 
@@ -79,6 +79,8 @@
 			var speedmultiplier = 1;
 			var bricks = [];
             var interval;
+            var gameOver = false;
+            
             for(c=0; c < brickColumnCount; c++) {
                 bricks[c] = [];
                 for(r=0; r < brickRowCount; r++) {
@@ -86,12 +88,10 @@
                 }
             }
             
-
             document.addEventListener("keydown", keyDownHandler, false);
             document.addEventListener("keyup", keyUpHandler, false);
             document.addEventListener("mousemove", mouseMoveHandler, false);
             document.getElementById("startBtn").addEventListener("click", startGame);
-
 
             function keyDownHandler(e) {
                 if(e.keyCode == 39) {
@@ -119,8 +119,6 @@
                 }
             }
 
-            //y hoogte x breedte
-
             function collisionDetection() {
                 for(c=0; c<brickColumnCount; c++) {
                     for(r=0; r<brickRowCount; r++) {
@@ -131,19 +129,14 @@
                                 b.status = 0;
                                 score++
                                 if(score == brickRowCount*brickColumnCount) {
-                                    alert("You won");
-                                    document.location.href = 'index.html';
+                                    alert("Well Done!, lets go to the next level!");
+                                    document.location.href = 'breakerlvl2.html';
                                 }
                             }
                         }
                     }
                 }
             }
-
-
-
-
-
 
             function drawBall() {
                 ctx.beginPath();
@@ -207,6 +200,7 @@
                     ctx.textAlign = "center";
                     ctx.fillStyle = "red";
                     ctx.fillText("Game Over", 650, 300);
+                    gameOver = true;
                 } 
                 // playing game
                 else if(y - 30 + dy <= canvas.height-ballradius){
@@ -226,7 +220,7 @@
                         if(x > paddlex && x < paddlex + paddleWidth) {
                             dy = -dy;
                             if (speedmultiplier <= 1){
-                                speedmultiplier = speedmultiplier + 0.01;
+                                speedmultiplier = speedmultiplier + 0.1;
                                 dx = dx * speedmultiplier;
                                 dy = dy * speedmultiplier;
                             }
@@ -234,11 +228,6 @@
                     }
                 }
             }
-
-
-
-
-
 
 		</script>
 	</body>

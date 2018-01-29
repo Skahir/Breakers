@@ -15,12 +15,11 @@
 	$_SESSION["errMsg"] = "";
 
 	// connect to the server and select database
-	$link = mysqli_connect("localhost", "root", "", "balls") or die($link);
-	mysqli_connect("localhost", "root", "", "balls") or die($link);
+	$link = mysqli_connect("localhost", "root", "", "breakers") or die($link);
+	mysqli_connect("localhost", "root", "", "breakers") or die($link);
 
 	// probeer een namecheck te doen in het database om te checken of die naam al bestaad
 	// $nameCheck = "select Acc_Name from accounts where Acc_Name = $_POST['username'];";
-
 
 	// get values from form
 	$username = $_POST['username'];
@@ -48,6 +47,7 @@ if (isset($_POST['register'])){
 	if ( empty($username) || empty($mail) || empty($mail2) || empty($password) || empty($password2) ){
 		$_SESSION["error"] = true;
 		$_SESSION["errMsg"] = "All fields are required";
+		header("location: register.php");
 	}
 /*
 	//check if username is already in use
@@ -60,24 +60,28 @@ if (isset($_POST['register'])){
 	elseif (strlen($username) < 3){
 		$_SESSION["error"] = true;
 		$_SESSION["errMsg"] = "username must have atleast 3 characters.";
+		header("location: register.php");
 	}
 
 	// checking if the passwords add up
 	elseif ($password != $password2){
 		$_SESSION["error"] = true;
 		$_SESSION["errMsg"] = "password needs to be the same.";
+		header("location: register.php");
 	}
 
 	// checking if password is atleast 6 characters long
 	elseif (strlen($password) < 6){
 		$_SESSION["error"] = true;
 		$_SESSION["errMsg"] = "password must have atleast 6 characters.";
+		header("location: register.php");
 	}
 	
 	// checking if the mails add up
 	elseif ($mail != $mail2){
 		$_SESSION["error"] = true;
 		$_SESSION["errMsg"] = "E-mail needs to be the same.";
+		header("location: register.php");
 	} else {
 
 		// checking if the email is already in use
@@ -91,7 +95,7 @@ if (isset($_POST['register'])){
 
 	// if there's no error, add the row with the info
 	if (!$_SESSION["error"]){
-	$result = mysqli_query($link, "INSERT INTO accounts (acc_ID, acc_Name, acc_Pass, acc_Mail) VALUES (NULL, '$username', '$password', '$mail')") or die("Failed to query database" .mysqli_error($link));
+	$result = mysqli_query($link, "INSERT INTO accounts (acc_ID, acc_Name, acc_Pass, acc_Mail) VALUES (NULL, '$username', '$password', '$mail')") or die("Failed to query database" . mysqli_error($link));
 
 		if(!$_SESSION["error"]){
 			$_SESSION["errMsg"] = "You have successfully registered, you may login now";

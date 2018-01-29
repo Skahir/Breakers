@@ -3,12 +3,13 @@
 	session_start();
 
 	$_SESSION["error"] = false;
-	$_SESSION["errMsg"] = "test bericht";
-
+	$_SESSION["errMsg"] = "";
+	$_SESSION["username"] = "";
+	$_SESSION["loggedIn"] = false;
 
 	// connect to server and select database
-	$link = mysqli_connect("localhost", "root", "", "balls") or die($link);
-	mysqli_connect("localhost", "root", "", "balls") or die($link);
+	$link = mysqli_connect("localhost", "root", "", "breakers") or die($link);
+	mysqli_connect("localhost", "root", "", "breakers") or die($link);
 
 	// get values from form
 	$username = $_POST['username'];
@@ -27,8 +28,10 @@
 		$fetch = mysqli_fetch_array($result);
 		if ($fetch['acc_Name'] == $username &&  $fetch['acc_Pass'] == $password){
 			$_SESSION["error"] = false;
-			$_SESSION["errMsg"] = "Login gelukt ".$fetch['acc_Name'];
-			header("location: menu.html");
+			$_SESSION["username"] = $fetch['acc_Name'];
+			$_SESSION["loggedIn"] = true;
+			$_SESSION["errMsg"] = "Login Successful";
+			header("location: menu.php");
 		} 	 
 		elseif($fetch['acc_Name'] != $username &&  $fetch['acc_Pass'] != $password){
 			$_SESSION["error"] = true;

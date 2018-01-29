@@ -30,8 +30,6 @@
   
   <?php 
     session_start(); 
-    $_SESSION["error"] = false;
-
   ?>
 
   </head>
@@ -77,7 +75,7 @@
 
             <form method="POST" action="register_form.php">
 
-              <div class="alert alert-danger"><?php if($_SESSION["error"] === true) { echo $_SESSION["errMsg"]; } ?></div>
+              <?php if(isset($_SESSION["error"])) { echo '<div class="alert alert-danger">' . $_SESSION["errMsg"] . '</div>';} ?>
 
               <label>Username </label><br>
                 <input type="text" class="form-control" id="username" name="username" maxlength="50"/><br>

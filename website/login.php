@@ -29,7 +29,7 @@
   <script src="background.js"></script>
 
   <?php 
-  session_start();
+    session_start(); 
   ?>
 
   </head>
@@ -75,7 +75,8 @@
           <div class="frm">
             <form method="POST" action="login_form.php">
               
-              <div class="alert alert-danger"><?php if($_SESSION["error"] === true) { echo $_SESSION["errMsg"]; } ?></div>
+              <?php if(isset($_SESSION["error"])) { echo '<div class="alert alert-danger">' . $_SESSION["errMsg"] . '</div>';} ?>
+              <!-- ff veranderen in de rest -->
 
               <label>Gebruikersnaam</label><br>
               <input type="text" class="form-control" id="username" name="username" placeholder="gebruikersnaam"/><br>

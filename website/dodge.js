@@ -34,18 +34,9 @@ function Square(sqrX, sqrY, radius, speed){
 	this.speed = speed;
 }
 
-function drawSquare(sqrX, sqrY, radius){
-	canvas.beginPath();
-	canvas.lineWidth = 2;
-	canvas.strokeStyle = "#ca1eff";
-	canvas.rect(sqrX, sqrY, radius, radius);
-	canvas.closePath();
-	canvas.stroke();
-}
-
 function setupSquares(){
 	for (var i = 1; i <= 3; i++) {
-        var sqrX = 1350;
+        var sqrX = 1250;
         var sqrY = Math.round(0 + Math.random() * 650);
         var speed = Math.round(1 + Math.random() * 3);
         var radius = Math.round(20 + Math.random() * 20);
@@ -53,6 +44,15 @@ function setupSquares(){
         var square = new Square(sqrX, sqrY, radius, speed);
         squares.push(square);
     }
+}
+
+function drawSquare(sqrX, sqrY, radius){
+    canvas.beginPath();
+    canvas.lineWidth = 2;
+    canvas.strokeStyle = "#ca1eff";
+    canvas.rect(sqrX, sqrY, radius, radius);
+    canvas.closePath();
+    canvas.stroke();
 }
 
 function keysDown(e) {
@@ -83,10 +83,8 @@ function draw(){
 	canvas.clearRect(0, 0, 1350, 650);
 	drawTriangle();
 	setupSquares();
-	square();
-	drawSquare();
-
-
+	Square(sqrX, sqrY, radius, speed);
+	drawSquare(sqrX, sqrY, radius);
 }
 
 setInterval(draw, 10);
